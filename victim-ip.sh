@@ -206,14 +206,14 @@ banner() {
 		${ORANGE}  █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀                  
 		${ORANGE}  █ █▀▀ ░░ █▄█ ██▄ ░█░   ${CYAN}Version {RED}:{YELLOW}${__version__}
 
-		${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by TAN × RIKTA ${WHITE}
+		${RED}[${GREEN}-${RED}]${GREEN} Tool Created by TAN × RIKTA ${WHITE}
 	EOF
 }
 
 ## Small Banner
 banner_small() {
 	cat <<- EOF
-		${GREEN} █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀
+        ${GREEN} █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀
         ${GREEN} █ █▀▀ ░░ █▄█ ██▄ ░█░ ${YELLOW} ${__version__}
 	EOF
 }
