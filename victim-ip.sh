@@ -122,7 +122,7 @@ banner() {
 ## Small Banner
 banner_small() {
 	cat <<- EOF
-		${GREEN} █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀
+        ${GREEN} █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀
         ${GREEN} █ █▀▀ ░░ █▄█ ██▄ ░█░ ${YELLOW} ${__version__}
 	EOF
 }
@@ -144,7 +144,7 @@ dependencies() {
 	fi
 
 	if [[ $(command -v php) && $(command -v curl) && $(command -v unzip) ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Packages already installed."
+		echo -e "\n${RED}[${GREEN}+${RED}]${GREEN} Packages already installed."
 	else
 		pkgs=(php curl unzip)
 		for pkg in "${pkgs[@]}"; do
@@ -482,9 +482,9 @@ custom_url() {
 		processed_url="Unable to Short URL"
 	fi
 
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 1 : ${GREEN}$url"
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 2 : ${ORANGE}$processed_url"
-	[[ $processed_url != *"Unable"* ]] && echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 3 : ${ORANGE}$masked_url"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 1 {RED}: ${GREEN}$url"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 2 {RED}: ${ORANGE}$processed_url"
+	[[ $processed_url != *"Unable"* ]] && echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} URL 3 {RED}: ${ORANGE}$masked_url"
 }
 
 ## Facebook
