@@ -1,4 +1,4 @@
-
+git pull
 __version__="2.3.5"
 
 ## DEFAULT HOST & PORT
@@ -41,12 +41,12 @@ fi
 
 ## Script termination
 exit_on_signal_SIGINT() {
-	{ printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program Interrupted." 2>&1; reset_color; }
+	{ printf "\n\n%s\n\n" "${RED}[${GREEN}!${RED}]${RED} Program Interrupted." 2>&1; reset_color; }
 	exit 0
 }
 
 exit_on_signal_SIGTERM() {
-	{ printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program Terminated." 2>&1; reset_color; }
+	{ printf "\n\n%s\n\n" "${RED}[${GREEN}!${RED}]${RED} Program Terminated." 2>&1; reset_color; }
 	exit 0
 }
 
@@ -80,25 +80,25 @@ check_update(){
 	if [[ $new_version != $__version__ ]]; then
 		echo -ne "${ORANGE}update found\n"${WHITE}
 		sleep 2
-		echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${ORANGE} Downloading Update..."
+		echo -ne "\n${GREEN}[${GREEN}+${GREEN}]${ORANGE} Downloading Update..."
 		pushd "$HOME" > /dev/null 2>&1
 		curl --silent --insecure --fail --retry-connrefused \
 		--retry 3 --retry-delay 2 --location --output ".zphisher.tar.gz" "${tarball_url}"
 
 		if [[ -e ".zphisher.tar.gz" ]]; then
 			tar -xf .zphisher.tar.gz -C "$BASE_DIR" --strip-components 1 > /dev/null 2>&1
-			[ $? -ne 0 ] && { echo -e "\n\n${RED}[${WHITE}!${RED}]${RED} Error occured while extracting."; reset_color; exit 1; }
+			[ $? -ne 0 ] && { echo -e "\n\n${RED}[${GREEN}!${RED}]${RED} Error occured while extracting."; reset_color; exit 1; }
 			rm -f .zphisher.tar.gz
 			popd > /dev/null 2>&1
 			{ sleep 3; clear; banner_small; }
-			echo -ne "\n${GREEN}[${WHITE}+${GREEN}] Successfully updated! Run GET-IP again\n\n"${WHITE}
+			echo -ne "\n${GREEN}[${GREEN}+${GREEN}] Successfully updated! Run GET-IP again\n\n"${WHITE}
 			{ reset_color ; exit 1; }
 		else
-			echo -e "\n${RED}[${WHITE}!${RED}]${RED} Error occured while downloading."
+			echo -e "\n${RED}[${GREEN}!${RED}]${RED} Error occured while downloading."
 			{ reset_color; exit 1; }
 		fi
 	else
-		echo -ne "${GREEN}up to date\n${WHITE}" ; sleep .5
+		echo -ne "${GREEN}up to date\n${GREEN}" ; sleep .5
 	fi
 }
 
@@ -106,7 +106,7 @@ check_update(){
 check_status() {
 	echo -ne "\n${RED}[${GREEN}+${RED}]${GREEN} Internet Status : "
 	timeout 3s curl -fIs "https://api.github.com" > /dev/null
-	[ $? -eq 0 ] && echo -e "${GREEN}Online${WHITE}" && check_update || echo -e "${RED}Offline${WHITE}"
+	[ $? -eq 0 ] && echo -e "${GREEN}Online${GREEN}" && check_update || echo -e "${RED}Offline${WHITE}"
 }
 
 ## Banner
@@ -115,7 +115,7 @@ banner() {
 		${ORANGE}  █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀                  
 		${ORANGE}  █ █▀▀ ░░ █▄█ ██▄ ░█░   ${CYAN}Version :${__version__}
 
-		${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by TAN × RIKTA ${WHITE}
+		${RED}[${GREEN}-${RED}]${CYAN} Tool Created by TAN × RIKTA ${GREEN}
 	EOF
 }
 
@@ -123,22 +123,24 @@ banner() {
 banner_small() {
 	cat <<- EOF
         ${GREEN} █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀
-        ${GREEN} █ █▀▀ ░░ █▄█ ██▄ ░█░ ${YELLOW} ${__version__}
+        ${GREEN} █ █▀▀ ░░ █▄█ ██▄ ░█░ ${CYAN} ${__version__}
+     
+        ${RED}[${GREEN}-${RED}]${CYAN} Tool Created by TAN × RIKTA ${GREEN}
 	EOF
 }
 
 ## Dependencies
 dependencies() {
-	echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing required packages..."
+	echo -e "\n${RED}[${GREEN}+${RED}]${GREEN} Installing required packages..."
 
 	if [[ -d "/data/data/com.termux/files/home" ]]; then
 		if [[ ! $(command -v proot) ]]; then
-			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${ORANGE}proot${CYAN}"${WHITE}
+			echo -e "\n${RED}[${GREEN}+${RED}]${GREEN} Installing package : ${ORANGE}proot${CYAN}"${WHITE}
 			pkg install proot resolv-conf -y
 		fi
 
 		if [[ ! $(command -v tput) ]]; then
-			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${ORANGE}ncurses-utils${CYAN}"${WHITE}
+			echo -e "\n${RED}[${GREEN}+$RED}]${GREEN} Installing package : ${ORANGE}ncurses-utils${CYAN}"${WHITE}
 			pkg install ncurses-utils -y
 		fi
 	fi
