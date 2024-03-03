@@ -573,7 +573,7 @@ main_menu() {
 		${RED}[${GREEN}01${RED}]${GREEN} Facebook      
 		${RED}[${GREEN}02${RED}]${GREEN} Instagram     
 		${RED}[${GREEN}03${RED}]${GREEN} Google      
-		${RED}[$GREEN}04${RED}]${GREEN} About         ${RED}[${GREEN}00${RED}]${ORANGE} Exit
+		${RED}[${GREEN}04${RED}]${GREEN} About         ${RED}[${GREEN}00${RED}]${ORANGE} Exit
 
 	EOF
 	
