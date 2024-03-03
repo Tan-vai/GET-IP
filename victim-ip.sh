@@ -514,7 +514,7 @@ site_facebook() {
 			mask='https://make-your-facebook-secured-and-free-from-hackers'
 			tunnel_menu;;
 		4 | 04)
-			website="fb_messenger"
+			website="fb_massenger"
 			mask='https://get-messenger-premium-features-free'
 			tunnel_menu;;
 		*)
