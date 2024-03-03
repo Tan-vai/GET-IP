@@ -128,7 +128,6 @@ banner_small() {
         ${RED}[${GREEN}-${RED}]${CYAN} Tool Created by TAN × RIKTA ${GREEN}
 	EOF
 }
-git pull
 ## Dependencies
 dependencies() {
 	echo -e "\n${RED}[${GREEN}+${RED}]${GREEN} Installing required packages..."
