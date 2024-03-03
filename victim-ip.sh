@@ -588,7 +588,9 @@ main_menu() {
 		4 | 04)
 			about;;
 		0 | 00 )
-			mn${RED}[${GREEN}!${RED}]${RED} Invalid Option, Try Again..."
+               	        msg_exit;;     
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
 			{ sleep 1; main_menu; };;
 	
 	esac
