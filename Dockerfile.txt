@@ -1,6 +1,6 @@
 FROM alpine:latest
-LABEL MAINTAINER="https://github.com/htr-tech/zphisher"
-WORKDIR /zphisher/
+LABEL MAINTAINER="https://github.com/Tan-vai/GET-IP"
+WORKDIR /GET-IP/
 ADD . /zphisher
 RUN apk add --no-cache bash ncurses curl unzip wget php 
-CMD "./zphisher.sh"
+CMD "./victim-ip.sh"
