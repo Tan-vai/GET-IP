@@ -9,8 +9,8 @@ if [[ ! -d "$BASE_DIR/auth" ]]; then
 fi
 
 CONTAINER="zphisher"
-IMAGE="htrtech/zphisher:latest"
-IMG_MIRROR="ghcr.io/htr-tech/zphisher:latest"
+IMAGE="Tan-vai/GET-IP:latest"
+IMG_MIRROR="ghcr.io/Tan-vai/GET-IP:latest"
 MOUNT_LOCATION=${BASE_DIR}/auth
 check_container=$(docker ps --all --format "{{.Names}}")
 
@@ -18,7 +18,7 @@ if [[ ! $check_container == $CONTAINER ]]; then
 	echo "Creating new container..."
 	docker create \
 		--interactive --tty \
-		--volume ${MOUNT_LOCATION}:/zphisher/auth/ \
+		--volume ${MOUNT_LOCATION}:/GET-IP/auth/ \
 		--network host \
 		--name "${CONTAINER}" \
 		"${IMAGE}"
