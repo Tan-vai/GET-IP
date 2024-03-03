@@ -1,5 +1,5 @@
 git pull
-__version__="2.3.5"
+__version__="1.0"
 
 ## DEFAULT HOST & PORT
 HOST='127.0.0.1'
