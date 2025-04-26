@@ -277,11 +277,9 @@ about() {
 		  any misuse of this toolkit ${RED}!${GREEN}
 		
 		${GREEN} ${CYANBG}Special Thanks to:${RESETBG}
-		${GREEN}  1RaY-1,Rikta
-		  KasRoudra, E343IO, sepp0, ThelinuxChoice,
-		  Yisus7u7
-
-		${RED}[${GREEN}00${RED}]${RED} Main Menu     ${RED}[${GREEN}05${RED}]${RED} Exit
+		${GREEN} Mr. Tan & Rikta
+		 
+     ${RED}[${GREEN}00${RED}]${RED} Main Menu     ${RED}[${GREEN}05${RED}]${RED} Exit
 
 	EOF
 
