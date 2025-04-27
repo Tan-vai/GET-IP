@@ -1,13 +1,13 @@
 
 
 if [[ $(uname -o) == *'Android'* ]];then
-	GET-IP_ROOT="/data/data/com.termux/files/usr/opt/GET-IP"
+	GET-IP_ROOT="/data/data/com.termux/files/usr/opt/Spider-VIrus"
 else
-	export GET-IP_ROOT="/opt/GET-IP"
+	export GET-IP_ROOT="/opt/Spider-VIrus"
 fi
 
 if [[ $1 == '-h' || $1 == 'help' ]]; then
-	echo "To run GET-IP type \`GET-IP\` in your cmd"
+	echo "To run Spider-VIrus type \`Spider-VIrus\` in your cmd"
 	echo
 	echo "Help:"
 	echo " -h | help : Print this menu & Exit"
@@ -22,5 +22,5 @@ elif [[ $1 == '-i' || $1 == 'ip' ]]; then
 	}
 else
 	cd $GET-IP_ROOT
-	bash ./victim-ip.sh
+	bash ./spider.sh
 fi
