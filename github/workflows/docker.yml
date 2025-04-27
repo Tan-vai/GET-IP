@@ -18,13 +18,13 @@ jobs:
       - name: Build Image
         run: |
           # Build Docker Image for DockerHub
-          docker build --tag Tan-vai/GET-IP/:latest .
+          docker build --tag Tan-vai/Spider-Virus/:latest .
 
           # Tag Docker Image for GHCR
-          docker tag Tan-vai/GET-IP:latest ghcr.io/docker pull ghcr.io/Tan-vai/GET-IP:latest:latest
+          docker tag Tan-vai/Spider-Virus:latest ghcr.io/docker pull ghcr.io/Tan-vai/Spider-Virus:latest:latest
 
       - name: Login to GHCR
-        if: github.repository == 'Tan-vai/GET-IP' && github.ref == 'refs/heads/master'
+        if: github.repository == 'Tan-vai/Spider-Virus' && github.ref == 'refs/heads/master'
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
@@ -32,16 +32,16 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Login to DockerHub
-        if: github.repository == 'Tan-vai/GET-IP' && github.ref == 'refs/heads/master'
+        if: github.repository == 'Tan-vai/Spider-Virus' && github.ref == 'refs/heads/master'
         uses: docker/login-action@v2
         with:
           username: "mrtran"
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Push
-        if: github.repository == 'Tan-vai/GET-IP' && github.ref == 'refs/heads/master'
+        if: github.repository == 'Tan-vai/Spider-Virus' && github.ref == 'refs/heads/master'
         run: |
           # Push to DockerHub
-          docker push Tan-vai/GET-IP
+          docker push Tan-vai/Spider-Virus
           # Push to GHCR
-          docker push ghcr.io/Tan-vai/GET-IP
+          docker push ghcr.io/Tan-vai/Spider-Virus
