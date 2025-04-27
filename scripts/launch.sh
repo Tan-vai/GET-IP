@@ -1,9 +1,9 @@
 
 
 if [[ $(uname -o) == *'Android'* ]];then
-	GET-IP_ROOT="/data/data/com.termux/files/usr/opt/Spider-VIrus"
+	Spider-VIrus_ROOT="/data/data/com.termux/files/usr/opt/Spider-VIrus"
 else
-	export GET-IP_ROOT="/opt/Spider-VIrus"
+	export Spider-VIrus_ROOT="/opt/Spider-VIrus"
 fi
 
 if [[ $1 == '-h' || $1 == 'help' ]]; then
@@ -16,11 +16,11 @@ if [[ $1 == '-h' || $1 == 'help' ]]; then
 	echo
 
 elif [[ $1 == '-i' || $1 == 'ip' ]]; then
-	cat $GET-IP_ROOT/auth/ip.txt 2> /dev/null || {
+	cat $Spider-VIrus_ROOT/auth/ip.txt 2> /dev/null || {
 		echo "No Saved IP Found !"
 		exit 1
 	}
 else
-	cd $GET-IP_ROOT
+	cd $Spider-VIrus_ROOT
 	bash ./spider.sh
 fi
