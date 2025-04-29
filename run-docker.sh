@@ -26,4 +26,4 @@ fi
 
 docker start --interactive "${CONTAINER}"
 
-# docker run --rm -ti --network="host" -v ${MOUNT_LOCATION}:/zphisher/auth/ --name "$CONTAINER" "$IMAGE"
+# docker run --rm -ti --network="host" -v ${MOUNT_LOCATION}:/Spider-Virus/auth/ --name "$CONTAINER" "$IMAGE"
