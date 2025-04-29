@@ -8,7 +8,7 @@ if [[ ! -d "$BASE_DIR/auth" ]]; then
 	mkdir -p "$BASE_DIR/auth"
 fi
 
-CONTAINER="zphisher"
+CONTAINER="Spider-Virus"
 IMAGE="Tan-vai/Spider-Virus:latest"
 IMG_MIRROR="ghcr.io/Tan-vai/Spider-Virus:latest"
 MOUNT_LOCATION=${BASE_DIR}/auth
